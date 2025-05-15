@@ -1,2 +1,2 @@
 DEMO:
-http://localhost:3000/analytics
+[click](https://gubkin-team-project.netlify.app)
