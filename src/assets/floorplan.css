@@ -1,0 +1,128 @@
+/* Стили для плана этажа и устройств на нем */
+
+.plan-container {
+  height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  background: rgba(7, 12, 41, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+}
+
+/* Комнаты */
+.room {
+  transition: all 0.3s ease;
+}
+
+.room:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Устройства на плане */
+.device-icon {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.device-icon:hover {
+  transform: scale(1.15);
+  z-index: 50;
+}
+
+.device-icon.active {
+  z-index: 100;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+}
+
+/* Статус индикаторы */
+.status-on {
+  animation: pulse-success 2s infinite;
+}
+
+.status-off {
+  opacity: 0.8;
+}
+
+.status-standby {
+  animation: pulse-warning 3s infinite;
+}
+
+/* Линии подключения */
+.connection-line {
+  stroke-dasharray: 5;
+  animation: dash 15s linear infinite;
+  opacity: 0.7;
+}
+
+/* Всплывающие подсказки */
+.device-tooltip {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(5px);
+  pointer-events: none;
+}
+
+.device-icon:hover .device-tooltip,
+.device-icon.active .device-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes pulse-success {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.8);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  }
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 3px rgba(245, 158, 11, 0.6);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.3);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Эффекты для подключенных устройств */
+.device-connected {
+  animation: connected-glow 2s infinite alternate;
+}
+
+@keyframes connected-glow {
+  from {
+    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.6));
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .plan-container {
+    height: 350px;
+  }
+  
+  .device-icon {
+    transform: scale(0.8);
+  }
+  
+  .device-icon:hover {
+    transform: scale(0.95);
+  }
+} 

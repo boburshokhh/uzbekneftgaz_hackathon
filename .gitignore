@@ -1,0 +1,43 @@
+# Зависимости
+/node_modules
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Директории среды выполнения
+/dist
+/dist-ssr
+*.local
+
+# Локальные конфигурации
+.env
+.env.local
+.env.*.local
+
+# Редакторы
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs
+*.log
+
+node_modules
+.DS_Store
+coverage
+
+/cypress/videos/
+/cypress/screenshots/
+
+*.tsbuildinfo
+
+# Local Netlify folder
+.netlify
